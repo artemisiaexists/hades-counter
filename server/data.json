@@ -1,0 +1,34 @@
+{
+  "counter": [
+    {
+      "name": "darkness",
+      "spent": 9000,
+      "total": 35265,
+      "url": "https://hades.fandom.com/wiki/Darkness"
+    },
+    {
+      "name": "nectar",
+      "spent": 5,
+      "total": 299,
+      "url": "https://hades.fandom.com/wiki/Nectar"
+    },
+    {
+      "name": "titan blood",
+      "spent": 21,
+      "total": 326,
+      "url": "https://hades.fandom.com/wiki/Titan_Blood"
+    },
+    {
+      "name": "diamond",
+      "spent": 27,
+      "total": 157,
+      "url": "https://hades.fandom.com/wiki/Diamond"
+    },
+    {
+      "name": "ambrosia",
+      "spent": 0,
+      "total": 151,
+      "url": "https://hades.fandom.com/wiki/Ambrosia"
+    }
+  ]
+}
