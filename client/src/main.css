@@ -18,27 +18,6 @@
     background-color: white;
 }
 
-#calculator {
-    margin: 5px;
-    background-color: lightgray;
-    padding: 25px;
-    border-radius: 10px;
-    width: 300px;
-}
-
-.calculatorimgs {
-    width: 25px;
-    height: 25px;
-    -ms-transform: translateY(20%);
-    transform: translateY(20%);
-}
-
-.calculatorform {
-    background-color: rgba(0, 0, 0, 0);
-    border-style: none none solid none;
-    width: 50px;
-}
-
 body, button {
     font-family: monospace;
     color:black;
