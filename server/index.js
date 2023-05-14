@@ -28,8 +28,12 @@ app.post("/counter", (req, res) => {
     const add = req.headers.value;
     const index = req.headers.index;
     dataToChange = data.counter[index];
-    var spent = parseInt(dataToChange.spent);
-    spent += parseInt(add);
+    var spent = parseInt(dataToChange.spent); 
+    if(parseInt(add) > 1) {
+        spent = parseInt(add);
+    } else {
+        spent += parseInt(add);
+    }
     dataToChange.spent = spent;
     data.counter[index] = dataToChange;
     fs.writeFile(
