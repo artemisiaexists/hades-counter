@@ -1,12 +1,20 @@
 import React from "react";
 import './main.css';
-
+//https://hades-counter-server.onrender.com/counter
 const Counter = (props) => {
     var name = props.name;
     var spent = props.spent;
     var total = props.total;
     var url = props.url;
     var i = props.i;
+    const disableNewlines = (event) => {
+        const keyCode = event.keyCode || event.which
+        if (keyCode === 13) {
+            event.returnValue = false
+            if (event.preventDefault) event.preventDefault()
+            props.enter(event.target.innerText, i)
+        }
+    }
     return(
         <div className="counterchild">
             <table>
@@ -18,7 +26,7 @@ const Counter = (props) => {
                         <td></td><td></td>
                         <td className="infobody">
                             <a href = {url} target="_blank" rel="noreferrer"><b>{name}</b></a><br/>
-                            {spent}/{total}<br/>
+                            <span className="counterform" role="textbox" contentEditable={true} onKeyPress={disableNewlines}>{spent}</span>/{total}<br/>
                             ({(spent/total*100).toFixed(2)}%)<br/>
                             <button index-key = {i} onClick={props.change}>+</button>
                             <button index-key = {i} onClick={props.change}>-</button>
@@ -50,11 +58,23 @@ const App = () => {
         })
             .then(res => res.json())
             .then(json => setData(json.counter))
-            //setData(json.counter)
     }
-    return (      
-        <div id="counterparent">
-            {data.map((item,i) => {return(<Counter i = {i} key= {i} name = {item.name} spent = {item.spent} total = {item.total} url = {item.url} change = {changeValue}/>)})}
+    function enterValue(newValue, i) {
+        fetch("https://hades-counter-server.onrender.com/counter", {
+            method: "post",
+            headers: {
+                "value": newValue,
+                "index": i
+            },
+        })
+            .then(res => res.json())
+            .then(json => setData(json.counter))
+    }
+    return (
+        <div id="container">        
+            <div id="counterparent">
+                {data.map((item,i) => {return(<Counter i = {i} key= {i} name = {item.name} spent = {item.spent} total = {item.total} url = {item.url} change = {changeValue} enter = {enterValue}/>)})}
+            </div>
         </div>
     );
 }
