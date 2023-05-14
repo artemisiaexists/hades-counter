@@ -83,7 +83,7 @@ const Ware = (props) => {
 const App = () => {
     const [data, setData] = React.useState([]);
     React.useEffect(() => {
-        fetch("/counter")
+        fetch("https://hades-counter-server.onrender.com/counter")
         .then(res => res.json())
         .then(json => setData(json.counter));
     }, []);
@@ -91,7 +91,7 @@ const App = () => {
         event.preventDefault()
         var val = 1;
         if(event.target.innerText === "-") val = -1;
-        fetch("/counter", {
+        fetch("https://hades-counter-server.onrender.com/counter", {
             method: "post",
             headers: {
                 "value": val,
