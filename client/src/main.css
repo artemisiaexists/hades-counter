@@ -18,6 +18,14 @@
     background-color: white;
 }
 
+.counterform {
+    border-style: none;
+    padding: 1px 6px;
+    font-family: monospace;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: large;
+}
+
 body, button {
     font-family: monospace;
     color:black;
