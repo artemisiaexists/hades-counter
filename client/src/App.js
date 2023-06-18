@@ -1,6 +1,6 @@
 import React from "react";
 import './main.css';
-https://hades-counter-server.onrender.com/counter
+//https://hades-counter-server.onrender.com/counter
 const Counter = (props) => {
     var name = props.name;
     var spent = props.spent;
@@ -41,7 +41,7 @@ const Counter = (props) => {
 const App = () => {
     const [data, setData] = React.useState([]);
     React.useEffect(() => {
-        fetch("https://hades-counter-server.onrender.com/counter")
+        fetch("https://jsonkeeper.com/b/H1GQ")
         .then(res => res.json())
         .then(json => setData(json.counter));
     }, []);
@@ -49,7 +49,7 @@ const App = () => {
         event.preventDefault()
         var val = 1;
         if(event.target.innerText === "-") val = -1;
-        fetch("https://hades-counter-server.onrender.com/counter", {
+        fetch("https://jsonkeeper.com/b/H1GQ", {
             method: "post",
             headers: {
                 "value": val,
@@ -60,7 +60,7 @@ const App = () => {
             .then(json => setData(json.counter))
     }
     function enterValue(newValue, i) {
-        fetch("https://hades-counter-server.onrender.com/counter", {
+        fetch("https://jsonkeeper.com/b/H1GQ", {
             method: "post",
             headers: {
                 "value": newValue,
